@@ -29,9 +29,10 @@ class MainActivity : AppCompatActivity() {
             //Mostramos un mensaje de espera al usuario.
             tvResult.text = getString(R.string.wait_text)
             val postReceived = try {
+                //Llamamos al servicio.
                 Api.retrofitService.getPostById(postId)
             } catch (error: Exception) {
-                //Llamamos al servicio.
+                //Retornamos un mensaje de error en caso de que el servicio falle.
                 getString(R.string.error_text, error.message)
             }
             //Mostramos el resultado obtenido, ya sea exitoso o erroneo.
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 //Llamamos al servicio.
                 Api.retrofitService.getAllPosts()
             } catch (error: Exception) {
+                //Retornamos un mensaje de error en caso de que el servicio falle.
                 getString(R.string.error_text, error.message)
             }
             //Mostramos el resultado obtenido, ya sea exitoso o erroneo.
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 //Llamamos al servicio.
                 Api.retrofitService.getAllUsers()
             } catch (error: Exception) {
+                //Retornamos un mensaje de error en caso de que el servicio falle.
                 getString(R.string.error_text, error.message)
             }
             //Mostramos el resultado obtenido, ya sea exitoso o erroneo.
