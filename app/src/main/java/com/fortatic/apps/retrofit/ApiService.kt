@@ -1,8 +1,11 @@
 package com.fortatic.apps.retrofit
 
+import retrofit2.Response
 import retrofit2.Retrofit.Builder
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
@@ -32,6 +35,9 @@ interface ApiService {
 
     @GET("users")
     suspend fun getAllUsers(): List<User>
+
+    @POST("posts")
+    suspend fun postPost(@Body post: Post): Response<Post>
 }
 
 /**
